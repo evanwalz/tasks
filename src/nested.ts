@@ -1,3 +1,4 @@
+import { toBePartiallyChecked } from "@testing-library/jest-dom/matchers";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 
@@ -78,7 +79,16 @@ export function sumPoints(questions: Question[]): number {
  * Consumes an array of questions and returns the sum total of the PUBLISHED questions.
  */
 export function sumPublishedPoints(questions: Question[]): number {
-    return 0;
+    const totalPubPoints = questions.reduce(
+        (currentSum: number, quest: Question) => {
+            if (quest.published) {
+                return currentSum + quest.points;
+            }
+            return currentSum;
+        },
+        0,
+    );
+    return totalPubPoints;
 }
 
 /***
