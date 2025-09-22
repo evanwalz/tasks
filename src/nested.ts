@@ -1,7 +1,7 @@
 import { toBePartiallyChecked } from "@testing-library/jest-dom/matchers";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
-import { makeBlankQuestion } from "./objects";
+import { duplicateQuestion, makeBlankQuestion } from "./objects";
 
 /**
  * Consumes an array of questions and returns a new array with only the questions
@@ -262,5 +262,11 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number,
 ): Question[] {
-    return [];
+    return ([] as Question[]).concat(
+        ...questions.map((quest: Question) =>
+            quest.id === targetId ?
+                [quest, duplicateQuestion(newId, quest)]
+            :   [quest],
+        ),
+    );
 }
