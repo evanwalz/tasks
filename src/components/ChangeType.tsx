@@ -6,6 +6,10 @@ export function ChangeType(): React.JSX.Element {
     const [type, setType] = useState<QuestionType>("short_answer_question");
     return (
         <span>
+            Question Type:{" "}
+            {type === "short_answer_question" ?
+                <p>Short Answer</p>
+            :   <p>Multiple Choice</p>}
             <Button
                 onClick={() => {
                     if (type === "short_answer_question") {
