@@ -12,7 +12,6 @@ function App(): React.JSX.Element {
         <div className="App">
             <header className="App-header">
                 Evan Walz - UD CISC275 with React Hooks and TypeScript
-                <p> Hello World </p>
             </header>
             <hr></hr>
             <Counter></Counter>
