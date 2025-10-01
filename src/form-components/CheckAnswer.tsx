@@ -22,7 +22,6 @@ export function CheckAnswer({
             <div>
                 {" "}
                 Your answer is: {answer === expectedAnswer ? "✔️" : "❌"}
-                <h3>Check Answer</h3>
             </div>
         </div>
     );
